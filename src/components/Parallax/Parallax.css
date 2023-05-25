@@ -18,7 +18,10 @@
 }
 
 .parallax-body{
-    height:1000px;background-color:rgba(76, 31, 181, 0.483);font-size:36px
+    height:1000px;
+    background-color:rgba(76, 31, 181, 0.483);
+    font-size:36px;
+    color: white;
 }
 
 .parallax-header{
@@ -32,3 +35,13 @@
 
 }
 
+.botones{
+    display: flex;
+    justify-content:center;
+    margin-top: 24px;
+    gap: 15px;
+}
+
+.botones a, .botones button {
+    font-size: 24px;
+}
