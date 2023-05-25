@@ -1,0 +1,18 @@
+.header-text {
+    color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.logo{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.logo-img{
+    background-image: url(".\\src\\assets\\logo ivr.png");
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
