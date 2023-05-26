@@ -1,6 +1,26 @@
+import React, { useEffect, useState } from 'react';
 import './LlamadasConEncuestas.css'
+import axios from 'axios';
 
 const LlamadasConEncuestas = () => {
+
+    const [llamadas, setLlamadas] = useState([])
+
+    useEffect(()=>{
+        const obtenerLlamadas = async ()=>{
+            const urlApi = "http://rovtest01.ddns.net:27015/api/llamadas-cn-encuesta-resp"
+
+            await axios.get(urlApi).then((response)=>{console.log(response)})
+
+
+
+
+        }
+        obtenerLlamadas()
+    }, [])
+
+
+
   return (
     <div id="LlamadasConEncuestas">
       <h3>Llamadas con Encuestas </h3>
