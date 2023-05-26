@@ -1,6 +1,8 @@
 import "./DatosDeLlamadas.css";
 
 const DatosDeLlamadas = () => {
+
+
   return (
     <div>
       <h3>Datos de la llamada</h3>

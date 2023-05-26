@@ -1,49 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import './LlamadasConEncuestas.css'
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import "./LlamadasConEncuestas.css";
+import axios from "axios";
 
 const LlamadasConEncuestas = () => {
+  const [llamadas, setLlamadas] = useState([]);
+  const urlApi =
+    "http://rovtest01.ddns.net:27015/api/llamadas-cn-encuesta-resp";
 
-    const [llamadas, setLlamadas] = useState([])
+  const obtenerLlamadas = async () => {
+    try {
+      const resp = await axios.get(urlApi);
+      setLlamadas(resp.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    useEffect(()=>{
-        const obtenerLlamadas = async ()=>{
-            const urlApi = "http://rovtest01.ddns.net:27015/api/llamadas-cn-encuesta-resp"
+  const renderizarTBody = () => {
+    let tbody = [];
 
-            await axios.get(urlApi).then((response)=>{console.log(response)})
+    llamadas.map((ll) => {
+      console.log(ll.descripcionOperador);
+      tbody.push(
+        <tr>
+          <td> {ll.llamadaId}</td>
+          <td> {ll.descripcionOperador}</td>
+          <td> {ll.duracion}</td>
+        </tr>
+      );
+    });
 
+    return tbody;
+  };
 
-
-
-        }
-        obtenerLlamadas()
-    }, [])
-
-
+  useEffect(() => {
+    obtenerLlamadas();
+  }, []);
 
   return (
     <div id="LlamadasConEncuestas">
       <h3>Llamadas con Encuestas </h3>
 
-        <table className="table table-hover">
-            <thead>
-                <tr>
-                    <th>Invoice ID</th>
-                    <th>Date</th>
-                </tr>    
-            </thead>
-            <tbody>
-                <tr>
-                    <td>ID-456654</td>
-                    <td>14/02/2023</td>
-                </tr>
-                <tr>
-                    <td>ID-87978</td>
-                    <td>13/02/2023</td>
-                </tr>
-            </tbody>
-        </table>
-
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>Invoice ID</th>
+            <th>Descripcion</th>
+            <th>Duracion</th>
+          </tr>
+        </thead>
+        <tbody>{renderizarTBody()}</tbody>
+      </table>
     </div>
   );
 };
