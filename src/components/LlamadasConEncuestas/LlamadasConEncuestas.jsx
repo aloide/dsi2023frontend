@@ -20,12 +20,13 @@ const LlamadasConEncuestas = () => {
   };
 
   const obtenerDatosLlamadas = async (id) => {
-    alert(id);
+    //alert(id);
     const urlApi = `http://rovtest01.ddns.net:27015/api/llamada/${id}`;
 
     try {
       const res = await axios.get(urlApi);
       setdatosLlamada(res.data);
+      console.log(res.data.respuestas)
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +57,7 @@ const LlamadasConEncuestas = () => {
   const renderizarDatosLlamada = () => {
     const div = []
     div.push(
-        <UseDatosLlamada llamada={datosLlamada}></UseDatosLlamada>
+        <UseDatosLlamada llamada={datosLlamada} rtas={datosLlamada.respuestas}></UseDatosLlamada>
     )
     return div
   };
