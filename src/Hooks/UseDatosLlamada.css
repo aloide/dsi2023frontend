@@ -1,0 +1,9 @@
+.row{
+    display:flex;
+    padding-left:15px;
+}
+
+.dato{
+    font-weight: bold;
+    margin-right: 5px;
+}

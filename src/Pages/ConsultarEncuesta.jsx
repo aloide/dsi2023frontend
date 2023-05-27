@@ -4,7 +4,6 @@ import LlamadasConEncuestas from "../components/LlamadasConEncuestas/LlamadasCon
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./ConsultarEncuesta.css";
-import DatosDeLlamadas from "../components/DatosDeLlamadas/DatosDeLlamadas";
 
 const ConsultarEncuesta = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -25,8 +24,6 @@ const ConsultarEncuesta = () => {
         <button>Buscar llamadas</button>
 
         <LlamadasConEncuestas />
-
-        <DatosDeLlamadas />
 
       </div>
     </div>
