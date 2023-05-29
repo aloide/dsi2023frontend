@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./LlamadasConEncuestas.css";
 import axios from "axios";
 import UseDatosLlamada from "../../Hooks/UseDatosLlamada";
+import BtnCancelar from "../BtnCancelar/BtnCancelar";
 
 const LlamadasConEncuestas = () => {
   const [llamadas, setLlamadas] = useState([]);
@@ -84,6 +85,8 @@ const LlamadasConEncuestas = () => {
       </div>
 
       <div id="datosLlamada">{renderizarDatosLlamada()}</div>
+      <BtnCancelar></BtnCancelar>
+      
     </div>
   );
 };
