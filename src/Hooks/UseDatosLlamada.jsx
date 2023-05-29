@@ -1,31 +1,44 @@
 import "./UseDatosLlamada.css";
 
+const tbdoyDatosEncuesta = (datosLlamada) => {
+  //console.log(datosLlamada);
+  const body = [];
+  if(!datosLlamada )return body;
+  datosLlamada.map(dll => {
+    body.push(
+      // posible error por falta de key en tr
+      //<tr key="">
+      <tr>
+        <td>{dll.descPregunta}</td>
+        <td>{dll.descRespuesta}</td>
+      </tr>
+    )
+  })
+  return body;
+};
+
 const UseDatosLlamada = (props) => {
+  const {cliente, estadoActual, duracion, descEncuesta, respuesta} = props.llamada;
   if (!props && !props.llamada) return <></>;
 
-  const tbdoyDatosEncuesta = (r) => {
-    console.log(r);
-    const body = [];
-    if (r) body.push(<p>a</p>);
-    return body;
-  };
+  
   return (
     <div className="datosLlamada">
       <div className="row">
         <label className="dato">Cliente: </label>
-        <div className="valor">{props.llamada.cliente}</div>
+        <div className="valor">{cliente}</div>
       </div>
       <div className="row">
         <label className="dato">Estado inicial: </label>
-        <div className="valor">{props.llamada.estadoActual}</div>
+        <div className="valor">{estadoActual}</div>
       </div>
       <div className="row">
         <label className="dato">Duracion: </label>
-        <div className="valor">{props.llamada.duracion}</div>
+        <div className="valor">{duracion}</div>
       </div>
       <div className="row">
         <label className="dato">Descripcion Encuesta </label>
-        <div className="valor">{props.llamada.descEncuesta}</div>
+        <div className="valor">{descEncuesta}</div>
       </div>
       <div>
         <h3>Respuestas:</h3>
@@ -37,9 +50,11 @@ const UseDatosLlamada = (props) => {
             </tr>
           </thead>
           <tbody>
-            
+          {tbdoyDatosEncuesta(props.llamada.respuestas)}
+
           </tbody>
         </table>
+
       </div>
     </div>
   );

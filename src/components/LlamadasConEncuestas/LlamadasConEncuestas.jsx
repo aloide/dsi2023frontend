@@ -26,7 +26,7 @@ const LlamadasConEncuestas = () => {
     try {
       const res = await axios.get(urlApi);
       setdatosLlamada(res.data);
-      console.log(res.data.respuestas)
+      //console.log(res.data.respuestas)
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +38,7 @@ const LlamadasConEncuestas = () => {
     llamadas.map((ll) => {
       //console.log(ll.descripcionOperador);
       tbody.push(
-        <tr>
+        <tr key={ll.llamadaId} >
           <td> {ll.llamadaId}</td>
           <td> {ll.descripcionOperador}</td>
           <td> {ll.duracion}</td>
