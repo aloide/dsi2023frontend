@@ -1,14 +1,11 @@
-
-import Parallax from '../components/Parallax/Parallax'
-
-
+import Parallax from "../components/Parallax/Parallax";
 
 const Splash = () => {
   return (
     <>
-    <Parallax/>
-  </>
-  )
-}
+      <Parallax />
+    </>
+  );
+};
 
-export default Splash
+export default Splash;

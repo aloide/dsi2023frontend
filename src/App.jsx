@@ -12,9 +12,9 @@ function App() {
     case "/":
       Component = <Splash />;
       break;
-      case "/ConsultarEncuesta":
-        Component = <ConsultarEncuesta />;
-        break;
+    case "/ConsultarEncuesta":
+      Component = <ConsultarEncuesta />;
+      break;
     default:
       Component = <NotFound></NotFound>;
   }
