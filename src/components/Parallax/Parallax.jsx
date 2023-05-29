@@ -1,5 +1,6 @@
 //import React from 'react'
 import "./Parallax.css";
+import Footer from '../Footer/Footer'
 
 const Parallax = () => {
   return (
@@ -29,6 +30,7 @@ const Parallax = () => {
         </div>
 
       </div>
+      <Footer></Footer>
     </div>
   );
 };

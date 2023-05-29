@@ -2,7 +2,6 @@
 import "./App.css";
 
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
 import NotFound from "./Pages/NotFound";
 import Splash from "./Pages/Splash";
 import ConsultarEncuesta from "./Pages/ConsultarEncuesta";
@@ -24,7 +23,6 @@ function App() {
       <Header></Header>
       <div className="container">{Component}</div>
 
-      <Footer></Footer>
     </div>
   );
 }
