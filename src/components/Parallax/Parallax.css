@@ -19,9 +19,17 @@
 
 .parallax-body{
     height:1000px;
-    background-color:rgba(76, 31, 181, 0.483);
-    font-size:36px;
+    font-size:24px;
     color: white;
+
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.115);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
 }
 
 .parallax-header{

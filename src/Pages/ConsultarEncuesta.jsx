@@ -21,7 +21,7 @@ const ConsultarEncuesta = () => {
         <DatePicker dateFormat={"dd/MM/yyyy"} selected={endDate} onChange={(date) => setEndDate(date)} />
         </label>
 
-        <button>Buscar llamadas</button>
+        <button className="btn btn-primary">Buscar llamadas</button>
 
         <LlamadasConEncuestas />
 

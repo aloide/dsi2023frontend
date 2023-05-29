@@ -43,7 +43,7 @@ const LlamadasConEncuestas = () => {
           <td> {ll.descripcionOperador}</td>
           <td> {ll.duracion}</td>
           <td>
-            <button onClick={() => obtenerDatosLlamadas(ll.llamadaId)}>
+            <button className="btn btn-primary" onClick={() => obtenerDatosLlamadas(ll.llamadaId)}>
               Seleccionar
             </button>
           </td>

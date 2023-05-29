@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./UseDatosLlamada.css";
 
 const tbdoyDatosEncuesta = (datosLlamada) => {
@@ -18,8 +19,9 @@ const tbdoyDatosEncuesta = (datosLlamada) => {
 };
 
 const UseDatosLlamada = (props) => {
-  const {cliente, estadoActual, duracion, descEncuesta, respuesta} = props.llamada;
   if (!props && !props.llamada) return <></>;
+
+  const {cliente, estadoActual, duracion, descEncuesta} = props.llamada;
 
   
   return (
