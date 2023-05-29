@@ -1,7 +1,7 @@
-.btn-cancelar{
+.botonera{
     width: 95%;
     display: flex;
     justify-content: flex-end;
-
+    gap: 10px;
 
 }

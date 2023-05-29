@@ -1,6 +1,12 @@
-const Botonera = () => {
+import './Botonera.css'
+
+/* eslint-disable react/prop-types */
+const Botonera = ({children}) => {
+    
   return (
-    <div>Botonera</div>
+    <div className="botonera">
+        {children}
+    </div>
   )
 }
 

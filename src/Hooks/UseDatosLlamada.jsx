@@ -52,7 +52,7 @@ const UseDatosLlamada = (props) => {
             </tr>
           </thead>
           <tbody>
-          {tbdoyDatosEncuesta(props.llamada.respuestas)}
+            {tbdoyDatosEncuesta(props.llamada.respuestas)}
 
           </tbody>
         </table>

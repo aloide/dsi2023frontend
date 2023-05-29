@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import "./LlamadasConEncuestas.css";
 import axios from "axios";
 import UseDatosLlamada from "../../Hooks/UseDatosLlamada";
-import BtnCancelar from "../BtnCancelar/BtnCancelar";
+import Botonera from "../Botonera/Botonera";
+import BtnCancelar from '../BtnCancelar/BtnCancelar';
+import BtnDescargarCsv from "../BtnDescargarCsv/BtnDescargarCsv";
+import BtnImprimir from "../BtnImprimir/BtnImprimir";
 
 const LlamadasConEncuestas = () => {
   const [llamadas, setLlamadas] = useState([]);
   const [datosLlamada, setdatosLlamada] = useState({});
+  const [idLlamada, setidLlamada] = useState(1)
 
   const obtenerLlamadas = async () => {
     const urlApi =
@@ -21,6 +25,7 @@ const LlamadasConEncuestas = () => {
   };
 
   const obtenerDatosLlamadas = async (id) => {
+    setidLlamada(id)
     //alert(id);
     const urlApi = `http://rovtest01.ddns.net:27015/api/llamada/${id}`;
 
@@ -85,7 +90,12 @@ const LlamadasConEncuestas = () => {
       </div>
 
       <div id="datosLlamada">{renderizarDatosLlamada()}</div>
-      <BtnCancelar></BtnCancelar>
+
+      <Botonera>
+        <BtnDescargarCsv id={idLlamada} ></BtnDescargarCsv>
+        <BtnImprimir></BtnImprimir>
+        <BtnCancelar></BtnCancelar>
+      </Botonera>
       
     </div>
   );

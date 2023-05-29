@@ -1,4 +1,3 @@
-import './BtnCancelar.css'
 
 const BtnCancelar = () => {
   return (
