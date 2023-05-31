@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import LlamadasConEncuestas from "../components/LlamadasConEncuestas/LlamadasConEncuestas";
-import useLlamadasConEncuestas from "../../Hooks/useLlamadasConEncuestas";
+import useLlamadasConEncuestas from "../Hooks/UseLlamadasConEncuestas";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./ConsultarEncuesta.css";
