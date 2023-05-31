@@ -19,9 +19,9 @@ const tbdoyDatosEncuesta = (datosLlamada) => {
 };
 
 const UseDatosLlamada = (props) => {
-  if (!props && !props.llamada) return <></>;
 
-  const {cliente, estadoActual, duracion, descEncuesta} = props.llamada;
+
+  const {cliente, estadoActual, duracion, descEncuesta, respuestas} = props.llamada;
 
   
   return (
@@ -52,7 +52,7 @@ const UseDatosLlamada = (props) => {
             </tr>
           </thead>
           <tbody>
-            {tbdoyDatosEncuesta(props.llamada.respuestas)}
+            {tbdoyDatosEncuesta(respuestas)}
 
           </tbody>
         </table>

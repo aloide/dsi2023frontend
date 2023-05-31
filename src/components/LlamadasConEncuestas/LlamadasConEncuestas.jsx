@@ -38,6 +38,8 @@ const LlamadasConEncuestas = () => {
     }
   };
 
+  //console.log(datosLlamada);
+
   const renderizarTBody = () => {
     let tbody = [];
 

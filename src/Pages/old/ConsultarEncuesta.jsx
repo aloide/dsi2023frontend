@@ -1,23 +1,16 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import LlamadasConEncuestas from "../components/LlamadasConEncuestas/LlamadasConEncuestas";
+import LlamadasConEncuestas from "../../components/LlamadasConEncuestas/LlamadasConEncuestas";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./ConsultarEncuesta.css";
 
 const ConsultarEncuesta = () => {
-
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const [mostrarLlamadas, setMostrarLlamadas] = useState(false);
 
-
-  const toggleMostrarLlamadas = () =>{
-    setMostrarLlamadas(true);
-  }
 
   return (
-    
     <div className="form-principal">
       <div className="form-group">
         <h3>Indicar Periodo</h3>
@@ -28,14 +21,13 @@ const ConsultarEncuesta = () => {
         <DatePicker dateFormat={"dd/MM/yyyy"} selected={endDate} onChange={(date) => setEndDate(date)} />
         </label>
 
-        <button className="btn btn-primary" onClick={toggleMostrarLlamadas}>Buscar llamadas</button>
+        <button className="btn btn-primary">Buscar llamadas</button>
 
-        {mostrarLlamadas? <LlamadasConEncuestas startDate={startDate} endDate={endDate}/> : <></>}
+        <LlamadasConEncuestas />
 
-        </div>
+      </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default ConsultarEncuesta
+export default ConsultarEncuesta;
