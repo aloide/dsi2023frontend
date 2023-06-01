@@ -6,6 +6,11 @@ import useLlamadasConEncuestas from "../Hooks/UseLlamadasConEncuestas";
 import "react-datepicker/dist/react-datepicker.css";
 import "./ConsultarEncuesta.css";
 
+import Botonera from '../components/Botonera/Botonera'
+import BtnCancelar from '../components/BtnCancelar/BtnCancelar'
+import BtnImprimir from '../components/BtnImprimir/BtnImprimir'
+import BtnDescargarCsv from '../components/BtnDescargarCsv/BtnDescargarCsv'
+
 const ConsultarEncuesta = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -27,22 +32,9 @@ const ConsultarEncuesta = () => {
     }
   };
 
-  /*<table className="table table-hover">
-          <thead>
-            <tr>
-              <th>Pregunta</th>
-              <th>Respuesta</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tbdoyDatosEncuesta(props.respuestas)}
-
-          </tbody>
-        </table>
- */
-
   const tBodyDetalleLlamada = (master) => {
-    const body = [];
+    const body  = [];
+    if(!master) return body;
     master.map((pyr) => {
       body.push(<tr>
         <td>{pyr.descPregunta}</td>
@@ -55,7 +47,6 @@ const ConsultarEncuesta = () => {
 
   const bodyDatosLlamada = () => {
     const body = [];
-    console.warn(detalleLlamada);
 
     try {
       body.push(<div>  <span> Cliente: {detalleLlamada.cliente} </span> </div>);
@@ -77,7 +68,7 @@ const ConsultarEncuesta = () => {
         </table>
       );
     } catch (error) {
-      console.log(error);
+      console.log("aaaaaaaaaa" + error);
     }
     return body;
   };
@@ -167,7 +158,11 @@ const ConsultarEncuesta = () => {
             {bodyDatosLlamada()}
           </div>
 
-          
+          <Botonera>
+            <BtnDescargarCsv detalle={detalleLlamada || {}}></BtnDescargarCsv>
+            <BtnImprimir></BtnImprimir>
+            <BtnCancelar></BtnCancelar>
+            </Botonera>
 
         </div>
       </div>
