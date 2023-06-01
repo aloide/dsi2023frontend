@@ -18,6 +18,7 @@ const ConsultarEncuesta = () => {
   const [detalleLlamada, setDetalleLlamada] = useState();
   const [mostrarTabla, setMostrarTabla] = useState(false);
   const [mostrarDatos, setMostrarDatos] = useState(false);
+  const [detalleLlamadaCSV, setDetalleLlamadaCSV] = useState();
   const [idLlamada, setIdLlamada] = useState();
 
   const { fetchLlamadas, fetchDatosLlamada } = useLlamadasConEncuestas();
@@ -44,6 +45,19 @@ const ConsultarEncuesta = () => {
 
     return body;
   };
+  const enviarIdLLamada =()=>{
+    console.log("🚀 ~ file: ConsultarEncuesta.jsx:51 ~ enviarIdLLamada ~ idLlamada:", idLlamada)
+    const id = idLlamada ?? -1;
+    console.log("🚀 ~ file: ConsultarEncuesta.jsx:52 ~ enviarIdLLamada ~ id:", id)
+    return (
+      <div>
+        <a className="btn btn-primary"
+        href={`http://localhost:27015/api/llamada-csv/`+ id}>
+          Descargar CSV
+        </a>
+      </div>
+    );
+  }
 
   const bodyDatosLlamada = () => {
     const body = [];
@@ -91,8 +105,9 @@ const ConsultarEncuesta = () => {
             <button
               onClick={async () => {
                 setMostrarDatos(true);
-                setDetalleLlamada(await fetchDatosLlamada(llamada.llamadaId));
-                setIdLlamada(llamada.llamadaId);
+                await setDetalleLlamada(await fetchDatosLlamada(llamada.llamadaId));
+                await setDetalleLlamadaCSV(detalleLlamada)
+                await setIdLlamada(llamada.llamadaId);
               }}
             >
               Seleccionar
@@ -159,7 +174,9 @@ const ConsultarEncuesta = () => {
           </div>
 
           <Botonera>
-            <BtnDescargarCsv detalle={detalleLlamada || {}}></BtnDescargarCsv>
+          <div id="btn-csv" >
+            {enviarIdLLamada()}
+          </div>
             <BtnImprimir></BtnImprimir>
             <BtnCancelar></BtnCancelar>
             </Botonera>
