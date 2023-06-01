@@ -1,13 +1,22 @@
+import axios from "axios";
+
 /* eslint-disable react/prop-types */
 const BtnDescargarCsv = (props) => {
-  const {id} = props.id;
+  const {detalle} = props.detalle;
+
+  console.warn(detalle);
+
+  const urlApi = "http://localhost:27015/api/llamada-csv";
+
+  const descargarCsv = async()=> {
+    await axios.post(urlApi,{data: detalle})
+  }
 
   return (
     <div>
-      <a className="btn btn-primary"
-      href={`http://rovtest01.ddns.net:27015/api/llamada-csv/${id}`}>
+      <button onClick={descargarCsv}>
         Descargar CSV
-      </a>
+      </button>
     </div>
   );
 };
