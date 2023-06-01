@@ -8,14 +8,13 @@ const useLlamadasConEncuestas = (startDate, endDate) => {
 
   useEffect(() => {
     const fetchLlamadas = async () => {
-      const urlApi = "http://rovtest01.ddns.net:27015/api/llamadas-cn-encuesta-resp";
-
+      const urlApi = "http://localhost:27015/api/llamadas-cn-encuesta-resp";
       try {
-        const resp = await axios.get(urlApi, {
-          params: {
-            startDate: startDate.toISOString(),
-            endDate: endDate.toISOString()
-          }
+        const resp = await axios.post(urlApi, {
+          
+            fechaDesde: startDate.toISOString(),
+            fechaHasta: endDate.toISOString()
+          
         });
         setLlamadas(resp.data);
       } catch (error) {
@@ -28,7 +27,7 @@ const useLlamadasConEncuestas = (startDate, endDate) => {
 
   const obtenerDatosLlamada = async (id) => {
     setIdLlamada(id);
-    const urlApi = `http://rovtest01.ddns.net:27015/api/llamada/${id}`;
+    const urlApi = `http://localhost:27015/api/llamada/${id}`;
 
     try {
       const res = await axios.get(urlApi);
