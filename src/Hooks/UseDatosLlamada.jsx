@@ -3,19 +3,7 @@ import "./UseDatosLlamada.css";
 
 const tbdoyDatosEncuesta = (datosLlamada) => {
   //console.log(datosLlamada);
-  const body = [];
-  if(!datosLlamada )return body;
-  datosLlamada.map(dll => {
-    body.push(
-      // posible error por falta de key en tr
-      //<tr key="">
-      <tr>
-        <td>{dll.descPregunta}</td>
-        <td>{dll.descRespuesta}</td>
-      </tr>
-    )
-  })
-  return body;
+  
 };
 
 const UseDatosLlamada = (props) => {

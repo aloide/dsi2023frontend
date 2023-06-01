@@ -6,38 +6,38 @@ const useLlamadasConEncuestas = (startDate, endDate) => {
   const [datosLlamada, setDatosLlamada] = useState({});
   const [idLlamada, setIdLlamada] = useState(1);
 
-  useEffect(() => {
-    const fetchLlamadas = async () => {
-      const urlApi = "http://localhost:27015/api/llamadas-cn-encuesta-resp";
+ const fetchLlamadas = async (fechaDesde, fechaHasta)=>{
+  const urlApi = "http://localhost:27015/api/llamadas-cn-encuesta-resp";
       try {
         const resp = await axios.post(urlApi, {
           
-            fechaDesde: startDate.toISOString(),
-            fechaHasta: endDate.toISOString()
+            fechaDesde: fechaDesde.toISOString(),
+            fechaHasta: fechaHasta.toISOString()
           
         });
-        setLlamadas(resp.data);
+        return(resp.data);
       } catch (error) {
         console.error(error);
       }
-    };
+ }
 
-    fetchLlamadas();
-  }, [startDate, endDate]);
+
+ const fetchDatosLlamada = async (id)=>{
+  const urlApi = `http://localhost:27015/api/llamada/${idLlamada}`;
+  try {
+        const resp = await axios.get(urlApi);
+        return(resp.data);
+      } catch (error) {
+        console.error(error);
+      }
+ }
 
   const obtenerDatosLlamada = async (id) => {
     setIdLlamada(id);
-    const urlApi = `http://localhost:27015/api/llamada/${id}`;
-
-    try {
-      const res = await axios.get(urlApi);
-      setDatosLlamada(res.data);
-    } catch (error) {
-      console.log(error);
-    }
+    
   };
 
-  return { llamadas, datosLlamada, idLlamada, obtenerDatosLlamada };
+  return {  obtenerDatosLlamada, fetchLlamadas , fetchDatosLlamada};
 };
 
 export default useLlamadasConEncuestas;
