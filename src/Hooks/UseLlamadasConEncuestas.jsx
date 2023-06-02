@@ -23,7 +23,7 @@ const useLlamadasConEncuestas = (startDate, endDate) => {
 
 
  const fetchDatosLlamada = async (id)=>{
-  const urlApi = `http://localhost:27015/api/llamada/${idLlamada}`;
+  const urlApi = `http://localhost:27015/api/llamada/${id}`;
   try {
         const resp = await axios.get(urlApi);
         return(resp.data);
